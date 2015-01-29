@@ -98,7 +98,8 @@ Switch.prototype.takeover = function(input) {
   this.label(on, off);
 
   this.on('change', function(value) {
-    input.setAttribute('checked', value);
+    if (value) return input.setAttribute('checked', 'checked');
+    input.removeAttribute('checked');
   });
 };
 
